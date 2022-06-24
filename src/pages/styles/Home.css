@@ -27,7 +27,7 @@
     object-position: center;
 }
 .image-animation {
-    animation: imageAnimation 9s forwards ease-in-out;
+    animation: imageAnimation 30s forwards ease-in-out;
 }
 
 .track-artist-wrapper {
@@ -81,7 +81,7 @@
     filter: drop-shadow(4px 4px 4px black);
 }
 .opacity-animation {
-    animation: opacityAnimation 9s forwards ease-in-out;
+    animation: opacityAnimation 30s forwards ease-in-out;
 }
 
 .track-thall-wrapper {
@@ -97,13 +97,12 @@
     position: absolute;
     transform-origin: top left;
     left:0;
-    top:0;
+    top: 35%;
     height: 50px;
     display: flex;
     align-items: center;
-    padding: 0 25px;
+    /* padding: 0 25px; */
     font-size: 1.5rem;
-    letter-spacing: 2rem;
     transform: rotate(-90deg) translateX(-100%);
     overflow: hidden;
     filter: drop-shadow(4px 4px 4px black);
@@ -111,26 +110,37 @@
 .track-thall p {
     text-align: end;
 }
+.track-thall span {
+    padding: 0 18px;
+}
+.thall-animation {
+    animation: thallAnimation 1s forwards ease-in-out;
+}
 
-.mute {
+.buttons {
     position: absolute;
     top: 60px;
     right: 60px;
     z-index: 999;
-    padding: 10px;
-    cursor: pointer;
     display: flex;
-    background-color: var(--text-dark);
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    gap: 10px;
+}
+.mute,
+.skip {
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--text-dark);
     fill: var(--text-light);
     transition-duration: var(--transition-duration);
 }
+.skip:hover,
 .mute:hover {
     background-color: var(--text-light);
     fill: var(--text-dark);
 }
+.skip svg,
 .mute svg {
     width: 40px;
     height: 40px;
@@ -200,8 +210,12 @@
         opacity: 1;
         filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black);
     }
+    35% {
+        filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black) sepia(1);
+    }
     75% {
         opacity: 1;
+        filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black) sepia(0.25);
         filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black);
     }
     95% {
@@ -210,5 +224,18 @@
     100% {
         opacity: 0;
         filter: invert(0) grayscale(0) drop-shadow(4px 4px 4px black);
+    }
+}
+
+@keyframes thallAnimation {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: var(--text-dark);
+        color: var(--text-light);
+    }
+    100% {
+        background-color: transparent;
     }
 }
