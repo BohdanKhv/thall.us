@@ -27,7 +27,7 @@
     object-position: center;
 }
 .image-animation {
-    animation: imageAnimation 30s forwards ease-in-out;
+    animation: imageAnimation 30s infinite ease-in-out;
 }
 
 .track-artist-wrapper {
@@ -81,7 +81,7 @@
     filter: drop-shadow(4px 4px 4px black);
 }
 .opacity-animation {
-    animation: opacityAnimation 30s forwards ease-in-out;
+    animation: opacityAnimation 30s infinite ease-in-out;
 }
 
 .track-thall-wrapper {
@@ -114,7 +114,20 @@
     padding: 0 18px;
 }
 .thall-animation {
-    animation: thallAnimation 1s forwards ease-in-out;
+    animation: thallAnimation 1s infinite ease-in-out;
+}
+
+.track-current-wrapper {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    z-index: 999;
+}
+.track-current-container {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 10px;
+    font-size: 30px;
 }
 
 .buttons {

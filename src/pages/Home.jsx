@@ -7,6 +7,7 @@ import tracks from '../data/tracks.json';
 const Home = () => {
     const [item, setItem] = useState(tracks[0]);
     const [itemCount, setItemCount] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
 
     const handleSwitch = () => {
@@ -31,7 +32,7 @@ const Home = () => {
     const volumeUp = () => {
         const audio = document.querySelector('audio');
 
-        console.log(audio.currentTime)
+        setCurrentTime(audio.currentTime);
 
         if(audio) {
             audio.play();
@@ -52,17 +53,17 @@ const Home = () => {
         handleSwitch();
         const intervalVolume = setInterval(volumeUp, 100);
 
-        setInterval(() => {
+        const thallInterval = setInterval(() => {
             const thall = document.querySelectorAll('.track-thall span');
             // get random number between 0 and thall.length
             const random = Math.floor(Math.random() * thall.length);
             document.querySelector('.thall-animation')?.classList?.remove('thall-animation');
-            thall[random].classList.add('thall-animation');
+            thall[random]?.classList?.add('thall-animation');
         }, 1000);
 
         return () => {
             clearInterval(intervalVolume);
-            document.querySelector('audio').pause();
+            clearInterval(thallInterval);
         }
     }, [])
 
@@ -77,6 +78,11 @@ const Home = () => {
                     Playlist
                 </Link>
             </div>
+                <div className="track-current-wrapper">
+                    <div className="track-current-container">
+                        {currentTime.toFixed(2)}
+                    </div>
+                </div>
             <div className="flex buttons">
                 <div 
                     className="mute" 
