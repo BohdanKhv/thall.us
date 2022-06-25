@@ -51,6 +51,7 @@ const Home = () => {
 
     useEffect(() => {
         handleSwitch();
+        document.title = 'T H A L L';
         const intervalVolume = setInterval(volumeUp, 100);
 
         const thallInterval = setInterval(() => {
