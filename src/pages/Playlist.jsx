@@ -117,6 +117,21 @@ const Playlist = () => {
                     </p>
                 </div>
             </div>
+            <div className="track-name-wrapper"
+                style={{
+                    position: 'absolute', 
+                    pointerEvents: "none"
+                }}>
+                <div className="track-name" 
+                style={{
+                    opacity: '1',
+                    animation: 'none!important',
+                }}>
+                    <p>
+                    {plaing?.name}
+                    </p>
+                </div>
+            </div>
         </div>
         </>
     )

@@ -35,7 +35,7 @@
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     margin: 0 auto;
-    position:relative;
+    position: relative;
 }
 .track-artist {
     position: absolute;
@@ -250,5 +250,14 @@
     }
     100% {
         background-color: transparent;
+    }
+}
+
+@media (max-width: 486px) {
+    .track-name {
+        font-size: 1rem;
+    }
+    .track-artist {
+        font-size: 1rem;
     }
 }

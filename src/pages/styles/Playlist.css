@@ -113,3 +113,21 @@
         filter: grayscale(1) invert(0)  drop-shadow(4px 4px 4px black);
     }
 }
+
+@media (max-width: 486px) {
+    .playlist-track-wrapper img {
+        width: 65px;
+        min-width: 65px;
+        max-width: 65px;
+    }
+    .playlist-track-wrapper {
+        min-height: 65px;
+        height: 65px;
+    }
+    .playlist-track-name {
+        font-size: 0.9rem;
+    }
+    .playlist-track-artist {
+        font-size: 0.75rem;
+    }
+}
