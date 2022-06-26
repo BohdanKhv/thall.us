@@ -26,7 +26,7 @@ const Playlist = () => {
     }
 
     useEffect(() => {
-        document.title = 'T H A L L | Playlist';
+        document.title = 'THALL | Playlist';
         
         const volumeTimer = setInterval(volumeUp, 100);
 
@@ -51,7 +51,9 @@ const Playlist = () => {
                     Home
                 </Link>
             </div>
-            <div className="playlist-wrapper">
+            <div 
+                className="playlist-wrapper"
+            >
                 <div className="track-thall-wrapper">
                     <div className="track-thall">
                         <p>

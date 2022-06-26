@@ -25,12 +25,17 @@
     width: 100%;
     object-fit: cover;
     object-position: center;
+    transition-duration: 1s;
+}
+.track-image:active {
+    filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black) sepia(1)!important;
 }
 .image-animation {
     animation: imageAnimation 30s infinite ease-in-out;
 }
 
 .track-artist-wrapper {
+    pointer-events: none;
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
@@ -38,6 +43,7 @@
     position: relative;
 }
 .track-artist {
+    pointer-events: none;
     position: absolute;
     transform-origin:bottom right;
     right:0;
@@ -56,6 +62,7 @@
 }
 
 .track-name-wrapper {
+    pointer-events: none;
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
@@ -85,6 +92,7 @@
 }
 
 .track-thall-wrapper {
+    pointer-events: none;
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
@@ -141,6 +149,7 @@
     gap: 10px;
 }
 .mute,
+.play,
 .skip {
     padding: 10px;
     cursor: pointer;
@@ -149,10 +158,12 @@
     transition-duration: var(--transition-duration);
 }
 .skip:hover,
+.play:hover,
 .mute:hover {
     background-color: var(--text-light);
     fill: var(--text-dark);
 }
+.play svg,
 .skip svg,
 .mute svg {
     width: 40px;

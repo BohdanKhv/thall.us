@@ -48,7 +48,7 @@
     background-color: black;
 }
 .playlist-track-wrapper:active {
-    opacity: 0.8;
+    filter: invert(1) drop-shadow(4px 4px 4px black)!important;
 }
 
 .playlist-track-plaing img {
@@ -88,6 +88,20 @@
     position: absolute;
     height: 100%;
     z-index: 1;
+}
+
+.horror {
+    position: absolute;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: 9999;
+    filter: invert(1);
+    transition-duration: var(--transition-duration);
+    opacity: 0;
+    filter: invert(0) grayscale(1);
 }
 
 @keyframes pAnim {
