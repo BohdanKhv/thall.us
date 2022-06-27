@@ -7,10 +7,11 @@
 .track-image-wrapper {
     position: absolute;
     background-color: var(--color-tertiary);
-    padding: 50px;
+    margin: 50px;
     height: -webkit-fill-available;
     width: -webkit-fill-available;
     overflow: hidden;
+    filter:  drop-shadow(4px 4px 4px black);
 }
 .track-image-container {
     width: 100%;
@@ -28,7 +29,7 @@
     transition-duration: 1s;
 }
 .track-image:active {
-    filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black) sepia(1)!important;
+    filter: invert(1) grayscale(1) sepia(1)!important;
 }
 .image-animation {
     animation: imageAnimation 30s infinite ease-in-out;
@@ -151,6 +152,8 @@
 .mute,
 .play,
 .skip {
+    display: flex;
+    align-items: center;
     padding: 10px;
     cursor: pointer;
     background-color: var(--text-dark);
@@ -195,9 +198,11 @@
 }
 
 .about-container {
-    position: absolute;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    width: 100vw;
 }
 .about {
     color: var(--text-dark);
@@ -215,6 +220,7 @@
     text-align: center;
     background-color: var(--color-tertiary);
     text-shadow: 4px 4px 4px black;
+    position: absolute;
 }
 .about p {
     line-height: 2rem;
@@ -275,26 +281,26 @@
 @keyframes imageAnimation {
     0% {
         opacity: 0;
-        filter: invert(0) grayscale(0) drop-shadow(4px 4px 4px black);
+        filter: invert(0) grayscale(0);
     }
     10% {
         opacity: 1;
-        filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black);
+        filter: invert(1) grayscale(1);
     }
     35% {
-        filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black) sepia(1);
+        filter: invert(1) grayscale(1) sepia(1);
     }
     75% {
         opacity: 1;
-        filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black) sepia(0.25);
-        filter: invert(1) grayscale(1) drop-shadow(4px 4px 4px black);
+        filter: invert(1) grayscale(1) sepia(0.25);
+        filter: invert(1) grayscale(1);
     }
     95% {
         opacity: 1;
     }
     100% {
         opacity: 0;
-        filter: invert(0) grayscale(0) drop-shadow(4px 4px 4px black);
+        filter: invert(0) grayscale(0);
     }
 }
 
@@ -316,8 +322,8 @@
         padding: 5px;
     }
     .play svg, .skip svg, .mute svg {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
     }
     .track-thall {
         top: 30%;
