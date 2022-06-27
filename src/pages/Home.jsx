@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './styles/Home.css';
 import tracks from '../data/tracks.json';
 
@@ -17,7 +16,7 @@ const Home = () => {
         document.querySelector('.track-artist').classList.remove('opacity-animation');
         const audio = document.querySelector('audio');
         audio.volume = 0;
-        setPlay(true)
+
         audio.src = item.preview;
         audio.muted = isMuted;
 
@@ -52,39 +51,21 @@ const Home = () => {
 
     useEffect(() => {
         handleSwitch();
-        document.title = 'T H A L L';
+        document.title = 'THALL';
         const intervalVolume = setInterval(volumeUp, 100);
-
-        const thallInterval = setInterval(() => {
-            const thall = document.querySelectorAll('.track-thall span');
-            // get random number between 0 and thall.length
-            const random = Math.floor(Math.random() * thall.length);
-            document.querySelector('.thall-animation')?.classList?.remove('thall-animation');
-            thall[random]?.classList?.add('thall-animation');
-        }, 1000);
 
         return () => {
             clearInterval(intervalVolume);
-            clearInterval(thallInterval);
         }
     }, [])
 
     return (
-        <div 
-            className="home-page">
-            <div className="link-wrapper">
-                <Link
-                    to="/playlist"
-                    className="playlist-link"
-                >
-                    Playlist
-                </Link>
-            </div>
-                <div className="track-current-wrapper">
-                    <div className="track-current-container">
-                        {currentTime.toFixed(2)}
-                    </div>
+        <>
+            <div className="track-current-wrapper">
+                <div className="track-current-container">
+                    {currentTime.toFixed(2)}
                 </div>
+            </div>
             <div className="flex buttons">
                 <div 
                     className="mute" 
@@ -127,12 +108,12 @@ const Home = () => {
                         }
                     }}>
                     {play ? 
-                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16">
-                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                        </svg>
-                    :
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                         <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+                    </svg>
+                    :
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                     </svg>
                     }
                 </div>
@@ -140,13 +121,6 @@ const Home = () => {
             <div className="track-image-wrapper">
                 <div className="track-image-container">
                     <img className="track-image" src={item.image} alt={item.name} />
-                </div>
-            </div>
-            <div className="track-thall-wrapper">
-                <div className="track-thall">
-                    <p>
-                        <span>T</span><span>H</span><span>A</span><span>L</span><span>L</span>
-                    </p>
                 </div>
             </div>
             <div className="track-artist-wrapper">
@@ -164,9 +138,9 @@ const Home = () => {
                 </div>
             </div>
             {item &&
-            <audio src={item.preview} muted={isMuted} autoPlay onEnded={handleSwitch}/>
+            <audio src={item.preview} muted={isMuted} autoPlay={play} onEnded={handleSwitch}/>
             }
-        </div>
+        </>
     )
 }
 

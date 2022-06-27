@@ -184,12 +184,59 @@
     text-decoration: none;
     z-index: 22;
     transition-duration: var(--transition-duration);
-    width: 0;
+    margin-right: 16px;
+    /* width: 0; */
 }
+.playlist-link.active,
 .playlist-link:hover {
     background-color: var(--text-dark);
     color: var(--text-light);
-    width: 100px;
+    /* width: 100px; */
+}
+
+.about-container {
+    position: absolute;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100vw;
+}
+.about {
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 50px;
+    padding: 20px;
+    z-index: 0;
+    height: -webkit-fill-available;
+    display: flex;
+    filter: drop-shadow(4px 4px 4px black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-tertiary);
+    text-shadow: 4px 4px 4px black;
+}
+.about p {
+    line-height: 2rem;
+}
+.about a {
+    line-height: 2rem;
+    background-color: white;
+    color: var(--text-light);
+    text-shadow: none;
+    text-decoration: none;
+    padding: 0 5px;
+    margin: 0 5px;
+    transition: var(--transition-duration);
+}
+.about a:hover {
+    filter: invert(1);
+}
+.about h1 {
+    margin-bottom: 20px;
+}
+.about h4 {
+    text-align: end;
 }
 
 @keyframes moveImage {
@@ -265,10 +312,27 @@
 }
 
 @media (max-width: 486px) {
+    .mute, .play, .skip {
+        padding: 5px;
+    }
+    .play svg, .skip svg, .mute svg {
+        width: 30px;
+        height: 30px;
+    }
+    .track-thall {
+        top: 30%;
+    }
+    .playlist-link {
+        font-size: 16px;
+    }
     .track-name {
         font-size: 1rem;
     }
     .track-artist {
         font-size: 1rem;
+    }
+    .about {
+        font-size: 0.85rem;
+        justify-items: unset;
     }
 }

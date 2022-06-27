@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import tracks from '../data/tracks.json';
 import './styles/Playlist.css';
 
@@ -27,18 +27,10 @@ const Playlist = () => {
 
     useEffect(() => {
         document.title = 'THALL | Playlist';
-        
+
         const volumeTimer = setInterval(volumeUp, 100);
 
-        const thallInterval = setInterval(() => {
-            const thall = document.querySelectorAll('.track-thall span');
-            const random = Math.floor(Math.random() * thall.length);
-            document.querySelector('.thall-animation')?.classList?.remove('thall-animation');
-            thall[random]?.classList?.add('thall-animation');
-        }, 1000);
-
         return () => {
-            clearInterval(thallInterval);
             clearInterval(volumeTimer);
         }
     }, [])
@@ -46,21 +38,9 @@ const Playlist = () => {
     return (
         <>
         <div className="playlist-page">
-            <div className="link-wrapper">
-                <Link to="/" className="playlist-link">
-                    Home
-                </Link>
-            </div>
             <div 
                 className="playlist-wrapper"
             >
-                <div className="track-thall-wrapper">
-                    <div className="track-thall">
-                        <p>
-                            <span>T</span><span>H</span><span>A</span><span>L</span><span>L</span>
-                        </p>
-                    </div>
-                </div>
                 <div className="playlist-container">
                     <div className="tracks">
                         {tracks.map((track, index) => (

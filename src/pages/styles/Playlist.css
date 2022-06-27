@@ -48,7 +48,7 @@
     background-color: black;
 }
 .playlist-track-wrapper:active {
-    filter: invert(1) drop-shadow(4px 4px 4px black)!important;
+    filter: sepia(1) drop-shadow(4px 4px 4px black)!important;
 }
 
 .playlist-track-plaing img {
